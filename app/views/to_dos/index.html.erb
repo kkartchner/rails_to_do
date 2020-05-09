@@ -1,0 +1,7 @@
+<h1>Rails ToDo</h1>
+<ul class="list-group">
+<% @todos.each do |todo| %>
+    <li class="list-group-item"><%= todo.description %> (Complete? <%= todo.completed %>)</li>
+<% end %>
+<%= render 'to_dos/new'%>
+</ul>

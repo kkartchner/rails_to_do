@@ -1,0 +1,6 @@
+<div class="well">
+<%= form_for :todo, url: to_dos_path do |f| %>
+    <%= f.text_area :description, {:class => 'form-control'} %>
+    <%= f.submit ({:class => 'btn btn-primary'}) %>
+<% end %>
+<div>
