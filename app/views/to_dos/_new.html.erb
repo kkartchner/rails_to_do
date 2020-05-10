@@ -1,6 +1,5 @@
 <div class="well">
 <%= form_with scope: :todo, url: to_dos_path, local: true do |f| %>
-    <%= f.text_area :description, {:class => 'form-control'} %>
-    <%= f.submit ({:class => 'btn btn-primary'}) %>
+    <%= f.text_field :description, {:class => 'form-control'} %>
 <% end %>
-<div>
+</div>
