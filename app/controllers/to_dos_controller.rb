@@ -10,6 +10,7 @@ class ToDosController < ApplicationController
   def create
     @todo = ToDo.new(todo_params)
     @todo.save
+    redirect_to to_dos_path
   end 
 
   private def todo_params
