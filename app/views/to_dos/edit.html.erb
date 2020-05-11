@@ -1,0 +1,6 @@
+<h1>Rails ToDo</h1>
+<ul class="list-group">
+<%= form_with scope: :todo, url: to_do_path(@todo), method: :patch, local: true do |f| %>
+    <%= f.text_field :description, {:class => 'form-control', :placeholder => 'What do you need to do? (Type here then press Enter)'} %>
+<% end %>
+</ul>
