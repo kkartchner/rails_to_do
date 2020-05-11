@@ -2,11 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 ul {
-    width: 40%;
     margin: auto;
     text-align: left;
 }
 
 div {
+    margin: auto;
+    width: 60%;
     text-align: center;
+}
+
+.form-control {
+    margin-bottom: 20px;
 }

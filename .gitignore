@@ -1,3 +1,5 @@
+*.xd
+*.io
 .vscode
 *.rbc
 capybara-*.html
@@ -77,3 +79,4 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
