@@ -1,12 +1,16 @@
 <% @todos.each do |todo| %>
 <li class="list-group-item">
-    <span>
-        <input type="checkbox" />
+    <span> 
+        <input type="checkbox" data-remote="true" 
+            data-url="/to_dos/<%=todo.id %>/toggle"
+            data-method="POST" 
+            <%= todo.completed ? 'checked' : ''%>
+        />
 
         <% if todo.completed %><%# Strikethrough description if it is marked as completed. %>
-            <del><%= todo.description %></del>
+        <del><%= todo.description %></del>
         <% else %><%# Else show description normally %>
-            <%= todo.description %>
+        <%= todo.description %>
         <% end %>
 
     </span>

@@ -5,9 +5,7 @@ class ToDosController < ApplicationController
 
   def create
     @todo = ToDo.new(todo_params)
-    if (@todo.save)
-      flash[:notice] = "Task created successfully!"
-    else
+    if (!@todo.save)
       @todo.errors.full_messages.each do |msg|
         flash[:msg] = msg
       end
@@ -18,7 +16,6 @@ class ToDosController < ApplicationController
   def destroy
     @todo = ToDo.find(params[:id])
     @todo.destroy
-    flash[:notice] = "Task deleted successfully!"
     redirect_to to_dos_path
   end
 
@@ -35,6 +32,13 @@ class ToDosController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def toggle
+    @todo = ToDo.find(params[:id])
+    @todo.completed = !@todo.completed 
+    @todo.save
+    redirect_to to_dos_path
   end
 
   private def todo_params
