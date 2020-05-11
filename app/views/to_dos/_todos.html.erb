@@ -1,0 +1,19 @@
+<% @todos.each do |todo| %>
+<li class="list-group-item">
+    <span>
+        <input type="checkbox" />
+
+        <% if todo.completed %>
+        <del><%= todo.description %></del>
+        <% else %>
+        <%= todo.description %>
+        <% end %>
+
+    </span>
+    <span class="deleteTodo">
+        <%= link_to '[X]', todo,
+                method: :delete,
+                data: {confirm: 'Are you sure you want to delete?'} %>
+        <span>
+</li>
+<% end %>

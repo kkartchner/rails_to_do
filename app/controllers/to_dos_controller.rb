@@ -11,9 +11,15 @@ class ToDosController < ApplicationController
     @todo = ToDo.new(todo_params)
     @todo.save
     redirect_to to_dos_path
-  end 
+  end
 
   private def todo_params
     params.require(:todo).permit(:description, :completed)
+  end
+
+  def destroy
+    @todo = ToDo.find(params[:id])
+    @todo.destroy
+    redirect_to to_dos_path
   end
 end
