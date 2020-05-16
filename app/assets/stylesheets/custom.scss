@@ -1,18 +1,18 @@
 // Place all the styles related to the ToDos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-ul {
+ul.list-group {
     margin: auto;
     text-align: left;
 }
 
-div {
+div.main {
     margin: auto;
     width: 60%;
     text-align: center;
 }
 
-.form-control {
+#newToDo{
     margin-bottom: 20px;
 }
 

@@ -5,6 +5,7 @@ class ToDosController < ApplicationController
 
   def create
     @todo = ToDo.new(todo_params)
+    @todo.completed = false
     if (!@todo.save)
       @todo.errors.full_messages.each do |msg|
         flash[:msg] = msg
