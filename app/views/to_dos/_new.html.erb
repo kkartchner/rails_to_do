@@ -1,3 +1,4 @@
+<%= render "devise/shared/error_messages", resource: @todo %>
 <%= form_with scope: :todo, url: to_dos_path, local: true do |f| %>
     <%= f.text_field :description, {class: 'form-control', id: 'newToDo', placeholder: 'What do you need to do? (Type here then press Enter)'} %>
 <% end %>

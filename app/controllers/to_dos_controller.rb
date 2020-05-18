@@ -1,11 +1,13 @@
 class ToDosController < ApplicationController
   def index
     @todos = ToDo.all
+    @todo = ToDo.new
   end
 
   def create
     @todo = ToDo.new(todo_params)
     @todo.completed = false
+    @todo.user_id = current_user.id
     if (!@todo.save)
       @todo.errors.full_messages.each do |msg|
         flash[:msg] = msg
