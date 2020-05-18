@@ -1,13 +1,13 @@
 class ToDosController < ApplicationController
   before_action :authenticate_user!
   def index
-    @todos = ToDo.all
+    @todos = current_user.to_dos
   end
 
   def create
-    @todo = ToDo.new(todo_params)
+    @todo = current_user.to_dos.build(todo_params)
     @todo.completed = false
-    @todo.user_id = current_user.id
+
     if (!@todo.save)
       @todo.errors.full_messages.each do |msg|
         flash[:msg] = msg

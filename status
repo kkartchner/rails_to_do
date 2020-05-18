@@ -1,0 +1,113 @@
+[33mcommit 96a452f71f3d83e8a7aa0024cea7164038c0f3cc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msign_up[m[33m)[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 16:46:41 2020 -0600
+
+    Make it so tasks shown on todos page are only from the currently signed in user. Make it so newly added tasks are added to the currently signed in user.
+
+[33mcommit 0b537d19d2a128dd11d6b827164c6badfbf33721[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 15:54:51 2020 -0600
+
+    Make login and sign up fully functional. Make app redirect to to_dos_path upon successful sign in. Remove error wrappers from sign in form.
+
+[33mcommit a2e812d3896f7341d6aba956bde65fe2b6c64b4d[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 14:18:01 2020 -0600
+
+    Make it so Todos are correctly assigned to logged in user
+
+[33mcommit 2c5ba6b412f09a0b88e3602a090676b8690521e3[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 13:58:03 2020 -0600
+
+    Add basic sign up and login functionality using devise gem
+
+[33mcommit 83104f0be72243b468f50a13753f03312bfac4fc[m[33m ([m[1;31morigin/sign_up[m[33m)[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 12:36:56 2020 -0600
+
+    Prep everything for using devise gem
+
+[33mcommit 0012955468da31b74bf801967498e16412d8f1a4[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 18 10:18:23 2020 -0600
+
+    Add signup page. And session controller and login page.
+
+[33mcommit f6afb55a2de499e564a87fe789ea65e3491ba5f5[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sat May 16 14:00:23 2020 -0600
+
+    Add scrolling div and place todos view into it.
+
+[33mcommit c31a40ee0d95ef67d058c1abcd52199170291d32[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sat May 16 13:42:59 2020 -0600
+
+    Add footer. Add styling to flash messages. Separate main application layout into partials. Add 'cancel and return to todo list' link to edit view
+
+[33mcommit a6c74c8b7a99385a781c99e2f319e595ef0697f3[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sat May 16 00:51:17 2020 -0600
+
+    Add user_id column to ToDo table
+    Generate user model and migration file
+    Add navigation bar and update look of layouts
+    Add user has many tasks and task belongs to user relationship
+
+[33mcommit 4885f568235239859ff18ffa3e52d4633d092f71[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 11 13:36:22 2020 -0600
+
+    Add functionality for marking a task as completed
+    Remove 'successfully created' flash and 'successfully deleted' flash as they aren't really necessary
+
+[33mcommit 7f5caf272d6ab2528fd3457cb0289b29d97263b2[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Mon May 11 10:35:05 2020 -0600
+
+    Add edit functionality.
+    Add flash messages
+
+[33mcommit 20a657f25e9c57269b246580eb1e5ee7aa6bce94[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sun May 10 21:42:33 2020 -0600
+
+    Add placeholder text to new todo textfield
+    Add delete todo item functionality
+
+[33mcommit 08496e53adb1adad990b3ad4d8255383c17345e6[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sun May 10 21:26:56 2020 -0600
+
+    Make user interface nicer
+
+[33mcommit 6ac6f449f667c760618028e5b2289077e2a8600b[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sun May 10 01:24:39 2020 -0600
+
+    Add strikethrough to todos that are have their completed attributed set to true. Change new todo description text-area to text-field to allow for submission by pressing enter. Remove Add To Do button.
+
+[33mcommit 1203162fc6b076c8ad5b5df530adacfebb3b5cc1[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Sun May 10 00:58:17 2020 -0600
+
+    Add refresh of page when task create button is clicked. Change form_for to newer form_with format
+
+[33mcommit d4ba2c52bdcc3e36ae38fff86b90b3b61fd7978c[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Fri May 8 20:48:49 2020 -0600
+
+    Add basic layout of todo list. Add functionality to create a todo item (need to figure out how to refresh page once button is pressed).
+
+[33mcommit d92006b805e03ddd4315b8ff1ee7f4d8fdfb762b[m
+Author: Ky Kartchner <kartchnerky@gmail.com>
+Date:   Fri May 8 17:22:41 2020 -0600
+
+    Add initial rails project files
+
+[33mcommit 6a54a81a1cce569163382b4fc2125a0386ea33f2[m
+Author: kkartchner <46807501+kkartchner@users.noreply.github.com>
+Date:   Wed May 6 17:33:32 2020 -0600
+
+    Initial commit
