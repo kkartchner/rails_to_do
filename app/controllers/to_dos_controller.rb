@@ -1,7 +1,7 @@
 class ToDosController < ApplicationController
+  before_action :authenticate_user!
   def index
     @todos = ToDo.all
-    @todo = ToDo.new
   end
 
   def create
