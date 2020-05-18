@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_054924) do
+ActiveRecord::Schema.define(version: 2020_05_18_035421) do
 
   create_table "to_dos", force: :cascade do |t|
     t.string "description"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_054924) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "first_name"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
