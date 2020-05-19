@@ -4,11 +4,17 @@
   <ul class="list-group" id="todoList">
     <%= render 'to_dos/new'%>
     <span id="recordShowNum" class="lead">Showing
-      <%= session[:record_show_num] + " of " + @total_record_num.to_s + 
-      (@total_record_num > @increment_amount ? " (scroll down to load more)" : "") %>
+      <%= @task_show_num.to_s + " of " + @total_record_num.to_s + 
+      (@task_show_num < @total_record_num ? " (scroll down to load more)" : "") %>
     </span>
-    <div class="overflow-auto" style="max-height: 360px">
+    <div id="todos-div" class="overflow-auto" style="max-height: 360px">
       <%= render 'to_dos/todos'%>
     </div>
+
+    <%
+=begin%>
+ <button onclick="load_more_records(<%= @increment_amount %>, <%= @total_record_num %>);">Load more</button> 
+<%
+=end%>
   </ul>
 </div>
