@@ -1,7 +1,14 @@
 class ToDosController < ApplicationController
   before_action :authenticate_user!
   def index
-    @todos = current_user.to_dos
+    update_record_show_num()
+    @todos = current_user.to_dos.order("created_at DESC").limit(session[:record_show_num].to_i)
+  end
+
+  def update_record_show_num
+    @increment_amount = 20
+    @total_record_num = current_user.to_dos.count
+      session[:record_show_num] = @total_record_num < @increment_amount ? @total_record_num.to_s : @increment_amount.to_s
   end
 
   def create

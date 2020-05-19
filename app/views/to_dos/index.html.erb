@@ -1,9 +1,13 @@
-<div class="container">
+<div class="container" style="margin-bottom: -55px">
   <h1 class="display-4">My Tasks</h1>
   <%= render 'layouts/messages' %>
   <ul class="list-group" id="todoList">
     <%= render 'to_dos/new'%>
-    <div class="overflow-auto" style="max-height: 440px">
+    <span id="recordShowNum" class="lead">Showing
+      <%= session[:record_show_num] + " of " + @total_record_num.to_s + 
+      (@total_record_num > @increment_amount ? " (scroll down to load more)" : "") %>
+    </span>
+    <div class="overflow-auto" style="max-height: 360px">
       <%= render 'to_dos/todos'%>
     </div>
   </ul>

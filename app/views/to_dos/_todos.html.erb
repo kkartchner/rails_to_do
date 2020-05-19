@@ -1,24 +1,20 @@
 <% @todos.each do |todo| %>
 <li class="list-group-item">
-    <span> 
-        <input type="checkbox" data-remote="true" 
-            data-url="/to_dos/<%=todo.id %>/toggle"
-            data-method="POST" 
-            <%= todo.completed ? 'checked' : ''%>
-        />
+  <span>
+    <input type="checkbox" data-remote="true" data-url="/to_dos/<%=todo.id %>/toggle" data-method="POST" <%= todo.completed ? 'checked' : ''%> />
 
-        <% if todo.completed %><%# Strikethrough description if it is marked as completed. %>
-        <del><%= todo.description %></del>
-        <% else %><%# Else show description normally %>
-        <%= todo.description %>
-        <% end %>
+    <% if todo.completed %><%# Strikethrough description if it is marked as completed. %>
+    <del><%= todo.description %></del>
+    <% else %><%# Else show description normally %>
+    <%= todo.description %>
+    <% end %>
 
-    </span>
-    <span class="todoActions">
-        <%= link_to '[E]', edit_to_do_path(todo) %>
-        <%= link_to '[X]', todo,
+  </span>
+  <span class="todoActions">
+    <%= link_to '[E]', edit_to_do_path(todo) %>
+    <%= link_to '[X]', todo,
                 method: :delete,
                 data: {confirm: 'Are you sure you want to delete?'} %>
-        <span>
+    <span>
 </li>
 <% end %>
