@@ -1,11 +1,15 @@
 class ToDosController < ApplicationController
   before_action :authenticate_user!
   def index
-    @increment_amount = 20
     @total_record_num = current_user.to_dos.count
-    @task_show_num = params[:task_show].to_i
-    if @task_show_num < @increment_amount
-      @task_show_num = @total_record_num < @increment_amount ? @total_record_num : @increment_amount
+    if params[:task_show].present? 
+      if params[:task_show] == "all"
+        @task_show_num = @total_record_num
+      else 
+        @task_show_num = params[:task_show].to_i
+      end
+    else
+      redirect_to to_dos_path(task_show: 20)
     end
 
     @todos = current_user.to_dos.order("created_at DESC").limit(@task_show_num)

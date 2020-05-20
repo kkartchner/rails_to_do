@@ -1,37 +1,26 @@
-window.onload = function () {
-  let todosDiv = document.getElementById("todos-div");
-  try {
-    todosDiv.scrollTop = this.sessionStorage["scrollTop"];
-  } catch (err){
-    todosDiv.scrollTop = 0;
+const div_on_scroll = e => {
+  let scrollTop = Math.ceil(e.srcElement.scrollTop);
+  if (scrollTop >= e.srcElement.scrollHeight - e.srcElement.offsetHeight) {
+    // this.sessionStorage["scrollTop"] = scrollTop;
+    console.log("called from div_on_scroll!");
+    load_more_records(20);
   }
-
-  document.getElementById("todos-div").addEventListener("scroll", e => {
-    let scrollTop = e.srcElement.scrollTop;
-    let scrollHeight = e.srcElement.scrollHeight;
-    let offsetHeight = e.srcElement.offsetHeight;
-    if (scrollTop == scrollHeight - offsetHeight){
-      if (load_more_records(20, 81)){
-        this.sessionStorage["scrollTop"]=scrollTop;
-      } else {
-        this.sessionStorage["scrollTop"]=0;
-      }
-    }
-  });
 }
-window.load_more_records = function (increment, total_tasks) {
-  if (total_tasks < increment) {
-    return false;
+document.addEventListener('turbolinks:load', function () {
+  let todosDiv = document.getElementById("todos-div");
+  if (get_current_task_show() != "all") {
+    todosDiv.addEventListener('scroll', div_on_scroll);
   }
+})
 
-  current_task_show_num = parseInt(window.location.search.substring(1).split("=")[1]);
-  if (isNaN(current_task_show_num)) {
-    current_task_show_num = increment;
-  }
-  new_task_show_num = current_task_show_num + increment;
-  if (new_task_show_num > total_tasks) {
-    new_task_show_num = total_tasks
-  }
-  window.location = "/to_dos?task_show=" + new_task_show_num;
-  return true;
+const load_more_records = (increment) => {
+  let new_task_show_num = parseInt(get_current_task_show()) + increment;
+  let total_records = parseInt(document.getElementById("totalRecordSpan").innerHTML);
+  let param = (new_task_show_num > total_records) ? "all" : new_task_show_num;
+
+  window.location = "/to_dos?task_show=" + param;
+}
+
+const get_current_task_show = () => {
+  return window.location.search.substring(1).split("=")[1];
 }

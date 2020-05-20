@@ -1,11 +1,12 @@
+<%= javascript_pack_tag 'todo_scripts' %>
 <div class="container" style="margin-bottom: -55px">
   <h1 class="display-4">My Tasks</h1>
   <%= render 'layouts/messages' %>
   <ul class="list-group" id="todoList">
     <%= render 'to_dos/new'%>
     <span id="recordShowNum" class="lead">Showing
-      <%= @task_show_num.to_s + " of " + @total_record_num.to_s + 
-      (@task_show_num < @total_record_num ? " (scroll down to load more)" : "") %>
+      <%= @task_show_num.to_s + " of " %><span id="totalRecordSpan"><%= @total_record_num.to_s %></span>
+      <%= (@task_show_num < @total_record_num ? " (scroll down to load more)" : "") %>
     </span>
     <div id="todos-div" class="overflow-auto" style="max-height: 360px">
       <%= render 'to_dos/todos'%>
@@ -13,7 +14,7 @@
 
     <%
 =begin%>
- <button onclick="load_more_records(<%= @increment_amount %>, <%= @total_record_num %>);">Load more</button> 
+ <button onclick="">Load more</button> 
 <%
 =end%>
   </ul>
