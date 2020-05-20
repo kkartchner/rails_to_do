@@ -1,7 +1,9 @@
-<h1 class="display-4">Edit Task</h1>
-<ul class="list-group">
-  <%= form_with scope: :todo, url: to_do_path(@todo), method: :patch, local: true do |f| %>
-  <%= f.text_field :description, {:class => 'form-control', :placeholder => 'What do you need to do? (Type here then press Enter)'} %>
-  <% end %>
-</ul>
+<div class="container">
+  <h1 class="display-4">Edit Task</h1>
+  <ul class="list-group">
+    <%= form_with scope: :todo, url: to_do_path(@todo), method: :patch, local: true do |f| %>
+    <%= f.text_field :description, {:class => 'form-control', :placeholder => 'What do you need to do? (Type here then press Enter)'} %>
+    <% end %>
+  </ul>
   <%= link_to '[Cancel and go back to todo list]', to_dos_path, class: "text-info" %>
+</div>

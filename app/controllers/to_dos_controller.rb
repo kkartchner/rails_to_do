@@ -4,19 +4,23 @@ class ToDosController < ApplicationController
 
   def index
     @total_record_num = current_user.to_dos.count
-    if params[:task_show].present? 
-      if params[:task_show] == "all"
+    task_show = params[:task_show]
+    if task_show.nil?
+      redirect_to to_dos_path(task_show: 20)
+    else
+      if task_show == "all"
         @task_show_num = @total_record_num
-      elsif is_number?(params[:task_show]) && params[:task_show].to_i >= 0 
-        @task_show_num = params[:task_show].to_i
+      elsif is_number?(task_show) && task_show.to_i >= 0 
+        @task_show_num = task_show.to_i 
+        if @task_show_num > @total_record_num
+          redirect_to to_dos_path(task_show: "all")
+        end
       else 
         redirect_to to_dos_path(task_show: 20)
       end
-    else
-      redirect_to to_dos_path(task_show: 20)
     end
 
-    @todos = current_user.to_dos.order("created_at DESC").limit(@task_show_num)
+    @todos = current_user.to_dos.order("updated_at DESC").limit(@task_show_num)
   end
 
   def create

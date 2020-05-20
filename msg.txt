@@ -1,0 +1,2 @@
+- Simplify URL task_show param checks a little bit and add redirect to "task_show=all" if task_show is greater than the total number of tasks.
+- Add container div to edit_task view to make it more consistent with the index view.
