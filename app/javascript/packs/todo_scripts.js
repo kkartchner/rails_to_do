@@ -1,14 +1,23 @@
 const div_on_scroll = e => {
   let scrollTop = Math.ceil(e.srcElement.scrollTop);
   if (scrollTop >= e.srcElement.scrollHeight - e.srcElement.offsetHeight) {
-    // this.sessionStorage["scrollTop"] = scrollTop;
+    sessionStorage["scrollTop"] = scrollTop;
     console.log("called from div_on_scroll!");
     load_more_records(20);
   }
 }
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbolinks:load', () => {
   let todosDiv = document.getElementById("todos-div");
-  if (get_current_task_show() != "all") {
+  let cur_task_show = get_current_task_show();
+
+  try {
+    todosDiv.scrollTop = sessionStorage["scrollTop"];
+  } catch (err) {
+    console.log(err);
+  }
+  sessionStorage["scrollTop"] = 0;
+
+  if (cur_task_show != "all") {
     todosDiv.addEventListener('scroll', div_on_scroll);
   }
 })

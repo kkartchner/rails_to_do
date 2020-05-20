@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
     # of to the root path
     stored_location_for(resource) || to_dos_path 
   end
+
+  def is_number? (string)
+    return true if Float(string) rescue false
+  end
 end
